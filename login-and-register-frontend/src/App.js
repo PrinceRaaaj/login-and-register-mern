@@ -2,7 +2,7 @@ import './App.css'
 import Homepage from "./components/homepage/homepage"
 import Login from "./components/login/login"
 import Register from "./components/register/register"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router,Route, Route } from "react-router-dom";
 import { useState } from 'react';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Switch>
+        <Routes>
           <Route exact path="/">
             {
               user && user._id ? <Homepage setLoginUser={setLoginUser} /> : <Login setLoginUser={setLoginUser}/>
@@ -23,7 +23,7 @@ function App() {
           <Route path="/register">
             <Register />
           </Route>
-        </Switch>
+        </Routes>
       </Router>
     </div>
   );
